@@ -1,0 +1,25 @@
+---
+I18n:
+  Enabled: true
+
+I18n/GetText:
+  Enabled: false
+
+I18n/GetText/DecorateString:
+  Enabled: true
+  AutoCorrect: false
+
+I18n/GetText/DecorateFunctionMessage:
+  Enabled: true
+
+I18n/GetText/DecorateStringFormattingUsingInterpolation:
+  Enabled: true
+
+I18n/GetText/DecorateStringFormattingUsingPercent:
+  Enabled: true
+
+I18n/RailsI18n:
+  Enabled: false
+
+I18n/RailsI18n/DecorateString:
+  Enabled: true
