@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 describe RuboCop::Cop::I18n::GetText::DecorateString, :config do
-  before(:each) do
+  before do
     @offenses = investigate(cop, source)
   end
 
