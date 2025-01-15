@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
-require 'rubocop/cop/i18n'
-require 'rubocop/rspec/cop_helper'
+require 'rubocop-i18n'
+require 'rubocop/rspec/support'
+
 require 'shared_examples'
 require 'shared_functions'
 

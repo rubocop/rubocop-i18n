@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
-
 describe RuboCop::Cop::I18n::RailsI18n::DecorateStringFormattingUsingInterpolation, :config do
   before(:each) do
     @offenses = investigate(cop, source)
