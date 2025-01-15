@@ -9,14 +9,14 @@ describe RuboCop::Cop::I18n::GetText::DecorateStringFormattingUsingInterpolation
     error_message = "function, message string should not contain \#{} formatting"
 
     context "#{decorator} decoration not used" do
-      it_behaves_like 'a_no_cop_required', 'thing("a \#{true} that is not decorated")'
+      it_behaves_like 'accepts', 'thing("a \#{true} that is not decorated")'
     end
 
     context "#{decorator} decoration used but strings contain no \#{}" do
-      it_behaves_like 'a_no_cop_required', "#{decorator}('a string')"
-      it_behaves_like 'a_no_cop_required', "#{decorator} 'a string'"
-      it_behaves_like 'a_no_cop_required', "#{decorator}(\"a string\")"
-      it_behaves_like 'a_no_cop_required', "Log.warning #{decorator}(\"could not change to group %{group}: %{detail}\") % { group: group, detail: detail }"
+      it_behaves_like 'accepts', "#{decorator}('a string')"
+      it_behaves_like 'accepts', "#{decorator} 'a string'"
+      it_behaves_like 'accepts', "#{decorator}(\"a string\")"
+      it_behaves_like 'accepts', "Log.warning #{decorator}(\"could not change to group %{group}: %{detail}\") % { group: group, detail: detail }"
     end
 
     context "#{decorator} decoration with formatting" do

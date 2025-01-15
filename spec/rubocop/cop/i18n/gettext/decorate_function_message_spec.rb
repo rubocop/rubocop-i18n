@@ -9,17 +9,17 @@ describe RuboCop::Cop::I18n::GetText::DecorateFunctionMessage, :config do
     context "#{function} with undecorated double-quote message" do
       it_behaves_like 'a_detecting_cop', "#{function}(\"a string\")", function, 'message string should be decorated'
       it_behaves_like 'a_fixing_cop', "#{function}(\"a string\")", "#{function}(_(\"a string\"))", function
-      it_behaves_like 'a_no_cop_required', "#{function}(_(\"a string\"))", function
+      it_behaves_like 'accepts', "#{function}(_(\"a string\"))", function
     end
     context "#{function} with undecorated single-quoted message" do
       it_behaves_like 'a_detecting_cop', "#{function}('a string')", function, 'message string should be decorated'
       it_behaves_like 'a_fixing_cop', "#{function}('a string')", "#{function}(_('a string'))", function
-      it_behaves_like 'a_no_cop_required', "#{function}(_('a string'))", function
+      it_behaves_like 'accepts', "#{function}(_('a string'))", function
     end
     context "#{function} with undecorated constant & message" do
       it_behaves_like 'a_detecting_cop', "#{function}(CONSTANT, 'a string')", function, 'message string should be decorated'
       it_behaves_like 'a_fixing_cop', "#{function}(CONSTANT, 'a string')", "#{function}(CONSTANT, _('a string'))", function
-      it_behaves_like 'a_no_cop_required', "#{function}(CONSTANT, _('a string'))", function
+      it_behaves_like 'accepts', "#{function}(CONSTANT, _('a string'))", function
     end
     context "#{function} with multiline message" do
       it_behaves_like 'a_detecting_cop', "#{function} 'multi '\\\n 'line'", function, 'message should not be a multi-line string'
@@ -30,18 +30,18 @@ describe RuboCop::Cop::I18n::GetText::DecorateFunctionMessage, :config do
     context "#{function} with interpolated string" do
       it_behaves_like 'a_detecting_cop', "#{function}(\"a string \#{var}\")", function, 'message should use correctly formatted interpolation'
       # it_behaves_like 'a_fixing_cop', "#{function}(\"a string \#{var}\")", "#{function}(_(\"a string %{value0}\") % { value0: var, })", function
-      it_behaves_like 'a_no_cop_required', "#{function}(_(\"a string %{value0}\")) % { value0: var, }", function
-      it_behaves_like 'a_no_cop_required', "#{function}(N_(\"a string %s\"))", function
+      it_behaves_like 'accepts', "#{function}(_(\"a string %{value0}\")) % { value0: var, }", function
+      it_behaves_like 'accepts', "#{function}(N_(\"a string %s\"))", function
     end
     context "#{function} message not decorated, but does not hit interpolation / concatenation / multi-line / simple-string" do
       it_behaves_like 'a_detecting_cop', "fail print('kittens')", function, 'message should be decorated'
     end
     RuboCop::Cop::I18n::GetText.supported_decorators.each do |decorator|
       context "#{function} with the #{decorator} decorator" do
-        it_behaves_like 'a_no_cop_required', "#{function}(#{decorator}(\"a string\"))", function
-        it_behaves_like 'a_no_cop_required', "#{function}(#{decorator}('a string'))", function
-        it_behaves_like 'a_no_cop_required', "#{function}(CONSTANT, #{decorator}('a string'))", function
-        it_behaves_like 'a_no_cop_required', "#{function}(#{decorator}(\"a string %{value0}\")) % { value0: var, }", function
+        it_behaves_like 'accepts', "#{function}(#{decorator}(\"a string\"))", function
+        it_behaves_like 'accepts', "#{function}(#{decorator}('a string'))", function
+        it_behaves_like 'accepts', "#{function}(CONSTANT, #{decorator}('a string'))", function
+        it_behaves_like 'accepts', "#{function}(#{decorator}(\"a string %{value0}\")) % { value0: var, }", function
       end
     end
   end

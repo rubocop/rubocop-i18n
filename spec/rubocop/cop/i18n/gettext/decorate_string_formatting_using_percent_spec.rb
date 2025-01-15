@@ -7,19 +7,19 @@ describe RuboCop::Cop::I18n::GetText::DecorateStringFormattingUsingPercent, :con
 
   RuboCop::Cop::I18n::GetText.supported_decorators.each do |decorator|
     context "#{decorator} decoration not used" do
-      it_behaves_like 'a_no_cop_required', 'thing("a %s that is not decorated")'
+      it_behaves_like 'accepts', 'thing("a %s that is not decorated")'
     end
 
     context "#{decorator} decoration used but strings contain no % format" do
-      it_behaves_like 'a_no_cop_required', "#{decorator}('a string')"
-      it_behaves_like 'a_no_cop_required', "#{decorator} \"a string\""
-      it_behaves_like 'a_no_cop_required', "#{decorator}(\"a string\" + \"another string\")"
-      it_behaves_like 'a_no_cop_required', "#{decorator}(\"a %-5.2.s thing s string\")"
-      it_behaves_like 'a_no_cop_required', "Log.warning #{decorator}(\"could not change to group %{group}: %{detail}\") % { group: group, detail: detail }"
+      it_behaves_like 'accepts', "#{decorator}('a string')"
+      it_behaves_like 'accepts', "#{decorator} \"a string\""
+      it_behaves_like 'accepts', "#{decorator}(\"a string\" + \"another string\")"
+      it_behaves_like 'accepts', "#{decorator}(\"a %-5.2.s thing s string\")"
+      it_behaves_like 'accepts', "Log.warning #{decorator}(\"could not change to group %{group}: %{detail}\") % { group: group, detail: detail }"
     end
 
     # context "#{decorator} decoration with %% entry ignored" do
-    #   it_behaves_like 'a_no_cop_required', "#{decorator}(\"a %%s thing #{format} string\")"
+    #   it_behaves_like 'accepts', "#{decorator}(\"a %%s thing #{format} string\")"
     # end
 
     formats = %w[b B d i o u x X e E f g G a A c p s]
