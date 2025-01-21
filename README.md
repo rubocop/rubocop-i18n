@@ -1,6 +1,6 @@
 # Rubocop::I18n
 
-[![Build Status](https://travis-ci.com/puppetlabs/rubocop-i18n.svg?branch=master)](https://travis-ci.com/puppetlabs/rubocop-i18n)
+[![CI](https://github.com/rubocop/rubocop-i18n/actions/workflows/rubocop.yml/badge.svg)](https://github.com/rubocop/rubocop-i18n/actions/workflows/rubocop.yml)
 
 A set of cops for detecting strings that need i18n decoration in your project.
 
