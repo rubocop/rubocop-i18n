@@ -1,6 +1,12 @@
 # Change Log
 
-### [master (Unreleased)](https://github.com/rubocop/rubocop-i18n/compare/v3.0.0...master)
+### [master (Unreleased)](https://github.com/rubocop/rubocop-i18n/compare/v3.1.0...master)
+
+### [3.1.0](https://github.com/rubocop/rubocop-i18n/compare/v3.0.0...v3.1.0)
+
+* Transfer ownership of rubocop-i18n from puppetlabs org to rubocop org (#62)
+* Suppress RuboCop warnings (#59)
+
 ### [3.0.0](https://github.com/rubocop/rubocop-i18n/compare/v2.0.2...v3.0.0)
 
 * Update Rubocop version to 1.0! Thank you @mvz!
