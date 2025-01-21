@@ -7,11 +7,10 @@ Gem::Specification.new do |spec|
   spec.name          = 'rubocop-i18n'
   spec.version       = '3.0.0'
   spec.authors       = ['Puppet', 'Brandon High', 'TP Honey', 'Helen Campbell']
-  spec.email         = ['team-modules@puppet.com', 'brandon.high@puppet.com', 'tp@puppet.com', 'helen@puppet.com']
 
   spec.summary       = 'RuboCop rules for i18n'
   spec.description   = 'RuboCop rules for detecting and autocorrecting undecorated strings for i18n (gettext and rails-i18n)'
-  spec.homepage      = 'https://github.com/puppetlabs/rubocop-i18n'
+  spec.homepage      = 'https://github.com/rubocop/rubocop-i18n'
   spec.license       = 'Apache-2.0'
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|

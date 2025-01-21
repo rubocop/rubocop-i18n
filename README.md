@@ -62,7 +62,7 @@ I18n/RailsI18n/DecorateString:
 
 ### I18n/GetText/DecorateString
 
-This cop is looks for strings that appear to be sentences but are not decorated. 
+This cop is looks for strings that appear to be sentences but are not decorated.
 Sentences are determined by the STRING_REGEXP.
 
 ##### Error message thrown
@@ -203,7 +203,7 @@ raise(someOtherFuntioncall(foo, "bar"))
 
 ##### Good
 
-In this raise or fail function, the message does not contain any decoration at all and the message is not a simple string. It may make sense to convert the message to a simple string. eg [Simple decoration of a message](#Simple-decoration-of-a-message). 
+In this raise or fail function, the message does not contain any decoration at all and the message is not a simple string. It may make sense to convert the message to a simple string. eg [Simple decoration of a message](#Simple-decoration-of-a-message).
 Or ignore this raise or fail function following this [How to ignore rules in code](#How-to-ignore-rules-in-code) section.
 
 ### I18n/GetText/DecorateStringFormattingUsingInterpolation
@@ -331,5 +331,4 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/puppetlabs/rubocop-i18n. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
+Bug reports and pull requests are welcome on GitHub at https://github.com/rubocop/rubocop-i18n. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [The RuboCop Community Code of Conduct](CODE_OF_CONDUCT.md).
