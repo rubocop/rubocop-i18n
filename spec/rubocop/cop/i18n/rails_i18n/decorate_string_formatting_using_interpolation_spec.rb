@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
-
 describe RuboCop::Cop::I18n::RailsI18n::DecorateStringFormattingUsingInterpolation, :config do
-  before(:each) do
+  before do
     @offenses = investigate(cop, source)
   end
 
@@ -11,14 +9,14 @@ describe RuboCop::Cop::I18n::RailsI18n::DecorateStringFormattingUsingInterpolati
     error_message = "function, message key string should not contain \#{} formatting"
 
     context "#{decorator} decoration not used" do
-      it_behaves_like 'a_no_cop_required', 'thing("a \#{true} that is not decorated")'
+      it_behaves_like 'accepts', 'thing("a \#{true} that is not decorated")'
     end
 
     context "#{decorator} decoration used but strings contain no \#{}" do
-      it_behaves_like 'a_no_cop_required', "#{decorator}('a.string')"
-      it_behaves_like 'a_no_cop_required', "#{decorator} 'a.string'"
-      it_behaves_like 'a_no_cop_required', "#{decorator}(\"a.string\")"
-      it_behaves_like 'a_no_cop_required', "Log.warning #{decorator}(\"a.string.%{status}\") % { status: 'done' }"
+      it_behaves_like 'accepts', "#{decorator}('a.string')"
+      it_behaves_like 'accepts', "#{decorator} 'a.string'"
+      it_behaves_like 'accepts', "#{decorator}(\"a.string\")"
+      it_behaves_like 'accepts', "Log.warning #{decorator}(\"a.string.%{status}\") % { status: 'done' }"
     end
 
     context "#{decorator} decoration with formatting" do

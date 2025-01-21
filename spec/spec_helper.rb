@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
-require 'rubocop/cop/i18n'
-require 'rubocop/rspec/cop_helper'
+require 'rubocop-i18n'
+require 'rubocop/rspec/support'
+
 require 'shared_examples'
 require 'shared_functions'
 
@@ -35,4 +36,6 @@ RSpec.configure do |config|
     mocks.syntax = :expect # Disable `should_receive` and `stub`
     mocks.verify_partial_doubles = true
   end
+
+  config.include(RuboCop::RSpec::ExpectOffense)
 end

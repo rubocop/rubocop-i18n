@@ -1,6 +1,9 @@
 inherit_from: .rubocop_todo.yml
 require:
   - rubocop/cop/internal_affairs
+  - rubocop-rake
+  - rubocop-rspec
+  - rubocop-performance
 
 AllCops:
   TargetRubyVersion: 2.5

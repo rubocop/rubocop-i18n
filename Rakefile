@@ -9,6 +9,7 @@ task default: :test
 
 task test: %i[rubocop spec]
 
+desc 'Run RuboCop'
 task :rubocop do
   sh 'rubocop -P'
 end

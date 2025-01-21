@@ -6,7 +6,7 @@ shared_examples 'accepts' do |code|
   let(:source) { code }
 
   it 'does not register an offense' do
-    expect(@offenses).to be_empty
+    expect_no_offenses(source)
   end
 end
 
@@ -19,13 +19,6 @@ shared_examples 'a_detecting_cop' do |unfixed, _function, expected_warning|
 
   it 'has the correct number of offenses' do
     expect(@offenses.size).to eq(1)
-  end
-end
-
-shared_examples 'a_no_cop_required' do |fixed, _function|
-  let(:source) { fixed.to_s }
-  it 'has no offenses found' do
-    expect(@offenses).to be_empty
   end
 end
 
