@@ -33,7 +33,7 @@ module RuboCop
 
             parent = node.parent
             if parent.respond_to?(:type)
-              return if parent.regexp_type? || parent.dstr_type?
+              return if parent.type?(:regexp, :dstr)
             end
 
             check_for_parent_decorator(node)

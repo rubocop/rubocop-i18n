@@ -48,7 +48,7 @@ module RuboCop
           def contains_string_formatting_with_interpolation?(node)
             return node.any? { |n| contains_string_formatting_with_interpolation?(n) } if node.is_a?(Array)
 
-            return string_contains_interpolation_format?(node.source) if node.respond_to?(:type) && (node.str_type? || node.dstr_type?)
+            return string_contains_interpolation_format?(node.source) if node.respond_to?(:type) && node.type?(:str, :dstr)
 
             return node.children.any? { |child| contains_string_formatting_with_interpolation?(child) } if node.respond_to?(:children)
 

@@ -50,7 +50,7 @@ module RuboCop
             end
 
             if node.respond_to?(:type)
-              if node.str_type? || node.dstr_type?
+              if node.type?(:str, :dstr)
                 return string_contains_percent_format?(node.source)
               end
             end
