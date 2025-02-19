@@ -2,6 +2,8 @@
 
 ### [master (Unreleased)](https://github.com/rubocop/rubocop-i18n/compare/v3.1.0...master)
 
+* Pluginfy rubocop-i18n (#65)
+
 ### [3.1.0](https://github.com/rubocop/rubocop-i18n/compare/v3.0.0...v3.1.0)
 
 * Transfer ownership of rubocop-i18n from puppetlabs org to rubocop org (#62)

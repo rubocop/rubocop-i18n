@@ -36,6 +36,4 @@ RSpec.configure do |config|
     mocks.syntax = :expect # Disable `should_receive` and `stub`
     mocks.verify_partial_doubles = true
   end
-
-  config.include(RuboCop::RSpec::ExpectOffense)
 end

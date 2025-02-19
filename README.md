@@ -28,8 +28,9 @@ Or install it yourself as:
 ## Usage
 
 In your `rubocop.yml`:
-```
-require:
+
+```yaml
+plugins:
  - rubocop-i18n
 ...
 # You *must* choose GetText or Rails-i18n style checking
@@ -57,6 +58,9 @@ I18n/GetText/DecorateStringFormattingUsingPercent:
 I18n/RailsI18n/DecorateString:
   Enabled: false
 ```
+
+> [!NOTE]
+> The plugin system is supported in RuboCop 1.72+. In earlier versions, use `require` instead of `plugins`.
 
 ## Cops
 

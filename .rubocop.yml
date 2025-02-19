@@ -1,12 +1,15 @@
 inherit_from: .rubocop_todo.yml
+
+plugins:
+  - rubocop-internal_affairs
+
 require:
-  - rubocop/cop/internal_affairs
   - rubocop-rake
   - rubocop-rspec
   - rubocop-performance
 
 AllCops:
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 2.7
   NewCops: enable
 
 # rubocop-i18n does not have config/default.
