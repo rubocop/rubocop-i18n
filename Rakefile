@@ -11,5 +11,5 @@ task test: %i[rubocop spec]
 
 desc 'Run RuboCop'
 task :rubocop do
-  sh 'rubocop -P'
+  sh 'rubocop'
 end
