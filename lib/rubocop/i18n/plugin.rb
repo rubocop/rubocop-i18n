@@ -9,7 +9,7 @@ module RuboCop
       def about
         LintRoller::About.new(
           name: 'rubocop-i18n',
-          version: Version::STRING,
+          version: VERSION,
           homepage: 'https://github.com/rubocop/rubocop-i18n',
           description: 'RuboCop rules for i18n.'
         )

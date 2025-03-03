@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
-lib = File.expand_path('lib', __dir__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require_relative 'lib/rubocop/i18n/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'rubocop-i18n'
-  spec.version       = '3.2.1'
+  spec.version       = RuboCop::I18n::VERSION
   spec.authors       = ['Puppet', 'Brandon High', 'TP Honey', 'Helen Campbell']
 
   spec.summary       = 'RuboCop rules for i18n'
