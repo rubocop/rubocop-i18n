@@ -1,6 +1,10 @@
 # Change Log
 
-### [master (Unreleased)](https://github.com/rubocop/rubocop-i18n/compare/v3.2.1...master)
+### [master (Unreleased)](https://github.com/rubocop/rubocop-i18n/compare/v3.2.2...master)
+
+### [3.2.2](https://github.com/rubocop/rubocop-i18n/compare/v3.2.1...v3.2.2)
+
+* Fix incorrect rubocop-i18n version number when `rubocop -V` is used.
 
 ### [3.2.1](https://github.com/rubocop/rubocop-i18n/compare/v3.2.0...v3.2.1)
 
