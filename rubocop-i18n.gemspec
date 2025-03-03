@@ -5,7 +5,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = 'rubocop-i18n'
-  spec.version       = '3.2.0'
+  spec.version       = '3.2.1'
   spec.authors       = ['Puppet', 'Brandon High', 'TP Honey', 'Helen Campbell']
 
   spec.summary       = 'RuboCop rules for i18n'

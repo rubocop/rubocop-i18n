@@ -1,6 +1,10 @@
 # Change Log
 
-### [master (Unreleased)](https://github.com/rubocop/rubocop-i18n/compare/v3.1.0...master)
+### [master (Unreleased)](https://github.com/rubocop/rubocop-i18n/compare/v3.2.1...master)
+
+### [3.2.1](https://github.com/rubocop/rubocop-i18n/compare/v3.2.0...v3.2.1)
+
+* Make the runtime dependency on RuboCop more flexible.
 
 ### [3.2.0](https://github.com/rubocop/rubocop-i18n/compare/v3.1.0...v3.2.0)
 
