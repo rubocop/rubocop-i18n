@@ -6,7 +6,9 @@ describe RuboCop::Cop::I18n::RailsI18n::DecorateStringFormattingUsingInterpolati
   end
 
   RuboCop::Cop::I18n::RailsI18n.supported_decorators.each do |decorator|
+    # rubocop:disable RSpec/LeakyLocalVariable -- `error_message` is used as an argument for `it_behaves_like`.
     error_message = "function, message key string should not contain \#{} formatting"
+    # rubocop:enable RSpec/LeakyLocalVariable
 
     context "#{decorator} decoration not used" do
       it_behaves_like 'accepts', 'thing("a \#{true} that is not decorated")'

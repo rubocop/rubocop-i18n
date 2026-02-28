@@ -29,7 +29,7 @@ module RuboCop
           def already_decorated?(node, parent = nil)
             parent ||= node
 
-            if node.respond_to?(:loc) && node.loc.respond_to?(:selector)
+            if node.respond_to?(:loc) && node.loc?(:selector)
               return true if GetText.supported_decorator?(node.loc.selector.source)
             end
 
@@ -91,7 +91,7 @@ module RuboCop
           def concatenation_offense?(node, parent = nil)
             parent ||= node
 
-            if node.respond_to?(:loc) && node.loc.respond_to?(:selector)
+            if node.respond_to?(:loc) && node.loc?(:selector)
               return true if node.loc.selector.source == '+'
             end
 
