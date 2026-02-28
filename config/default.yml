@@ -23,3 +23,6 @@ I18n/RailsI18n:
 
 I18n/RailsI18n/DecorateString:
   Enabled: true
+
+I18n/RailsI18n/DecorateStringFormattingUsingInterpolation:
+  Enabled: true
