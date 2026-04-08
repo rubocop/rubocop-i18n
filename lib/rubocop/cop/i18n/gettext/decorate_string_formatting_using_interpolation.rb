@@ -24,6 +24,8 @@ module RuboCop
         #
         class DecorateStringFormattingUsingInterpolation < Base
           def on_send(node)
+            return unless node.loc.selector
+
             decorator_name = node.loc.selector.source
             return unless GetText.supported_decorator?(decorator_name)
 

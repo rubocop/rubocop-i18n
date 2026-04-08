@@ -5,6 +5,10 @@ describe RuboCop::Cop::I18n::GetText::DecorateStringFormattingUsingInterpolation
     @offenses = investigate(cop, source)
   end
 
+  context 'when using .call shorthand syntax' do
+    it_behaves_like 'accepts', 'Object.method(:to_s).()'
+  end
+
   RuboCop::Cop::I18n::GetText.supported_decorators.each do |decorator|
     # rubocop:disable RSpec/LeakyLocalVariable -- `error_message` is used as an argument for `it_behaves_like`.
     error_message = "function, message string should not contain \#{} formatting"

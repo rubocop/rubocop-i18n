@@ -52,6 +52,10 @@ describe RuboCop::Cop::I18n::GetText::DecorateFunctionMessage, :config do
       end
     end
   end
+  context 'when using .call shorthand syntax' do
+    it_behaves_like 'accepts', 'Object.method(:to_s).()'
+  end
+
   context 'real life examples,' do
     context 'message is multiline with interpolated' do
       let(:source) { "raise(Puppet::ParseError, \"mysql_password(): Wrong number of arguments \" \\\n \"given (\#{args.size} for 1)\")" }
