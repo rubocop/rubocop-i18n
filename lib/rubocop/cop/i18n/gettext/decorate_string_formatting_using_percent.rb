@@ -27,6 +27,8 @@ module RuboCop
           SUPPORTED_FORMATS = %w[b B d i o u x X e E f g G a A c p s].freeze
 
           def on_send(node)
+            return unless node.loc.selector
+
             decorator_name = node.loc.selector.source
             return unless GetText.supported_decorator?(decorator_name)
 

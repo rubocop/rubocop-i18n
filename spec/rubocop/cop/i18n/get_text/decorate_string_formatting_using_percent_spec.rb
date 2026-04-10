@@ -5,6 +5,10 @@ describe RuboCop::Cop::I18n::GetText::DecorateStringFormattingUsingPercent, :con
     @offenses = investigate(cop, source)
   end
 
+  context 'when using .call shorthand syntax' do
+    it_behaves_like 'accepts', 'Object.method(:to_s).()'
+  end
+
   RuboCop::Cop::I18n::GetText.supported_decorators.each do |decorator|
     context "#{decorator} decoration not used" do
       it_behaves_like 'accepts', 'thing("a %s that is not decorated")'
