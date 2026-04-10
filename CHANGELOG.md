@@ -1,6 +1,11 @@
 # Change Log
 
-### [master (Unreleased)](https://github.com/rubocop/rubocop-i18n/compare/v3.2.3...master)
+### [master (Unreleased)](https://github.com/rubocop/rubocop-i18n/compare/v3.3.0...master)
+
+### [3.3.0](https://github.com/rubocop/rubocop-i18n/compare/v3.2.3...v3.3.0)
+
+* Enable `DecorateStringFormattingUsingInterpolation` cop with RailsI18n.
+* Fix an error when using `.call` shorthand syntax.
 
 ### [3.2.3](https://github.com/rubocop/rubocop-i18n/compare/v3.2.2...v3.2.3)
 
