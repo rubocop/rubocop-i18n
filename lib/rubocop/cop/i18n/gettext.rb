@@ -4,6 +4,13 @@ module RuboCop
   module Cop
     module I18n
       module GetText
+        extend LazyLoader
+
+        register_cop :DecorateString, "#{__dir__}/gettext/decorate_string"
+        register_cop :DecorateFunctionMessage, "#{__dir__}/gettext/decorate_function_message"
+        register_cop :DecorateStringFormattingUsingInterpolation, "#{__dir__}/gettext/decorate_string_formatting_using_interpolation"
+        register_cop :DecorateStringFormattingUsingPercent, "#{__dir__}/gettext/decorate_string_formatting_using_percent"
+
         def self.supported_methods
           %w[raise fail]
         end
