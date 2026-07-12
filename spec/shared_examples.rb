@@ -12,6 +12,7 @@ end
 
 shared_examples 'a_detecting_cop' do |unfixed, _function, expected_warning|
   let(:source) { unfixed.to_s }
+
   it 'has the correct rubocop warning' do
     expect(@offenses[0]).not_to be_nil
     expect(@offenses[0].message).to include(expected_warning)
@@ -24,6 +25,7 @@ end
 
 shared_examples 'a_fixing_cop' do |unfixed, fixed, _function|
   let(:source) { unfixed.to_s }
+
   it 'autocorrects' do
     corrected = autocorrect_source(unfixed)
     expect(corrected).to eq(fixed)

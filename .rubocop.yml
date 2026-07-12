@@ -14,6 +14,12 @@ AllCops:
 InternalAffairs/UndefinedConfig:
   Enabled: false
 
+# Specs contain Ruby snippets as cop input where interpolation-looking
+# sequences in single-quoted strings are intentional.
+Lint/InterpolationCheck:
+  Exclude:
+    - 'spec/**/*'
+
 Metrics/BlockLength:
   Exclude:
     # Exclude the spec directory because the rspec DSL results in long blocks

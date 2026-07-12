@@ -27,7 +27,7 @@ describe RuboCop::Cop::I18n::RailsI18n::DecorateString, :config do
 
   context 'decoration not needed for a hash key' do
     # a string as an hash key is ok
-    it_behaves_like 'accepts', 'memo["#{class_path}##{method}-#{source_line}"] += 1' # rubocop:disable Lint/InterpolationCheck
+    it_behaves_like 'accepts', 'memo["#{class_path}##{method}-#{source_line}"] += 1'
   end
 
   context 'string with invalid UTF-8' do

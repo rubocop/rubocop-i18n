@@ -62,8 +62,8 @@ describe RuboCop::Cop::I18n::GetText::DecorateFunctionMessage, :config do
 
       it 'has the correct error message' do
         expect(@offenses[0]).not_to be_nil
-        expect(@offenses[0].message).to match(/message should not be a multi-line string/)
-        expect(@offenses[0].message).to match(/message should use correctly formatted interpolation/)
+        expect(@offenses[0].message).to include('message should not be a multi-line string')
+        expect(@offenses[0].message).to include('message should use correctly formatted interpolation')
       end
 
       it 'has the correct number of offenses' do
