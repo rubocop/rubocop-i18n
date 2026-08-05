@@ -6,6 +6,12 @@ module RuboCop
       # The Rails I18n module contains cops used to lint and enforce the use of strings
       # in rails applications that want to use the I18n gem.
       module RailsI18n
+        extend LazyLoader
+
+        register_cop :DecorateString, "#{__dir__}/rails_i18n/decorate_string"
+        register_cop :DecorateStringFormattingUsingInterpolation,
+                     "#{__dir__}/rails_i18n/decorate_string_formatting_using_interpolation"
+
         def self.supported_decorators
           %w[
             t
