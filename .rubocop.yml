@@ -10,15 +10,15 @@ AllCops:
   TargetRubyVersion: 2.7
   NewCops: enable
 
-# rubocop-i18n does not have config/default.
-InternalAffairs/UndefinedConfig:
-  Enabled: false
-
 # Specs contain Ruby snippets as cop input where interpolation-looking
 # sequences in single-quoted strings are intentional.
 Lint/InterpolationCheck:
   Exclude:
     - 'spec/**/*'
+
+RSpec/DescribeClass:
+  Exclude:
+    - spec/project/**/*.rb
 
 Metrics/BlockLength:
   Exclude:
