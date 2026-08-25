@@ -35,23 +35,15 @@ RSpec.describe 'config/default.yml' do
   end
 
   it 'has configuration for all cops and amendments' do
-    expect(default_config.keys).to contain_exactly(*config_keys)
+    expect(default_config.keys).to match_array(config_keys)
   end
 
   it 'sorts configuration keys alphabetically with nested namespaces last' do
     i18n_keys = default_config.keys.select { |key| key.start_with?(primary_namespace) }
-    namespaced_i18n_keys = i18n_keys.select do |key|
-      key.start_with?(*(namespaces.values - [primary_namespace]))
-    end
+    namespaced_i18n_keys = i18n_keys.select { |key| key.start_with?(*(namespaces.values - [primary_namespace])) }
+    expected = i18n_keys.sort_by { |key| "#{namespaced_i18n_keys.include?(key) ? 1 : 0} #{key}" }
 
-    expected = i18n_keys.sort_by do |key|
-      namespaced = namespaced_i18n_keys.include?(key) ? 1 : 0
-      "#{namespaced} #{key}"
-    end
-
-    i18n_keys.each_with_index do |key, idx|
-      expect(key).to eq expected[idx]
-    end
+    i18n_keys.each_with_index { |key, idx| expect(key).to eq expected[idx] }
   end
 
   it 'includes a valid Enabled for every cop' do
