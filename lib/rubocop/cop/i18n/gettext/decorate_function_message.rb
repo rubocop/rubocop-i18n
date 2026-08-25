@@ -4,11 +4,11 @@ module RuboCop
   module Cop
     module I18n
       module GetText
-        # rubocop:disable Metrics/ClassLength
+        # rubocop:disable-next Metrics/ClassLength
         class DecorateFunctionMessage < Base
           extend AutoCorrector
 
-          # rubocop:disable Metrics/PerceivedComplexity
+          # rubocop:disable-next Metrics/PerceivedComplexity
           def on_send(node)
             return unless node.loc.selector
 
@@ -27,7 +27,6 @@ module RuboCop
               detect_and_report(node, message_section, method_name)
             end
           end
-          # rubocop:enable Metrics/PerceivedComplexity
 
           private
 
@@ -155,7 +154,6 @@ module RuboCop
             }
           end
         end
-        # rubocop:enable Metrics/ClassLength
       end
     end
   end

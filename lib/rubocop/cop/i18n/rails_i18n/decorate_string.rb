@@ -74,12 +74,6 @@ module RuboCop
           SENTENCE_REGEXP = /^\s*[[:upper:]][[:alpha:]]*[[:blank:]]+.*[.!?]$/.freeze
           FRAGMENTED_SENTENCE_REGEXP = /^\s*([[:upper:]][[:alpha:]]*[[:blank:]]+.*)|([[:alpha:]]*[[:blank:]]+.*[.!?])$/.freeze
           FRAGMENT_REGEXP = /^\s*[[:alpha:]]*[[:blank:]]+.*$/.freeze
-          SUPPORTED_DECORATORS = %w[
-            t
-            t!
-            translate
-            translate!
-          ].freeze
 
           def on_dstr(node)
             check_for_parent_decorator(node) if dstr_contains_sentence?(node)
