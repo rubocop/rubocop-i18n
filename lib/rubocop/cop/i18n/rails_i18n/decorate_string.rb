@@ -6,7 +6,8 @@ module RuboCop
       module RailsI18n
         # Looks for strings that appear to be sentences but are not decorated.
         # Sentences are determined by the SENTENCE_REGEXP. (Upper case character, at least one space,
-        # and sentence punctuation at the end)
+        # and sentence punctuation at the end. A `?` after `=`, `<`, `>`, `(` or `,` is treated as a
+        # SQL bind placeholder, not punctuation.)
         #
         # @example
         #
@@ -71,7 +72,7 @@ module RuboCop
         #   t("only_this_text")
         #
         class DecorateString < Base
-          SENTENCE_REGEXP = /^\s*[[:upper:]][[:alpha:]]*[[:blank:]]+.*[.!?]$/.freeze
+          SENTENCE_REGEXP = /^\s*[[:upper:]][[:alpha:]]*[[:blank:]]+.*(?:[.!]|[^=<>(,[:blank:]][[:blank:]]*\?)$/.freeze
           FRAGMENTED_SENTENCE_REGEXP = /^\s*([[:upper:]][[:alpha:]]*[[:blank:]]+.*)|([[:alpha:]]*[[:blank:]]+.*[.!?])$/.freeze
           FRAGMENT_REGEXP = /^\s*[[:alpha:]]*[[:blank:]]+.*$/.freeze
           SUPPORTED_DECORATORS = %w[

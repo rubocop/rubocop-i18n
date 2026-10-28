@@ -8,6 +8,8 @@ describe RuboCop::Cop::I18n::GetText::DecorateString, :config do
   context 'decoration needed for string' do
     it_behaves_like 'a_detecting_cop', 'a = "A sentence that is not decorated."', '_', 'decorator is missing around sentence'
     it_behaves_like 'a_detecting_cop', 'thing("A sentence that is not decorated.")', '_', 'decorator is missing around sentence'
+    it_behaves_like 'a_detecting_cop', 'thing("API key is missing.")', '_', 'decorator is missing around sentence'
+    it_behaves_like 'a_detecting_cop', 'thing("Are you sure?")', '_', 'decorator is missing around sentence'
     it_behaves_like 'a_fixing_cop', 'thing("A sentence that is not decorated.")', 'thing(_("A sentence that is not decorated."))', 'thing'
   end
 
@@ -24,6 +26,14 @@ describe RuboCop::Cop::I18n::GetText::DecorateString, :config do
             :yaml:
                :something: #{variable}
           YAML'
+    # a trailing SQL bind placeholder is not sentence punctuation
+    it_behaves_like 'accepts', 'query = "SELECT one FROM two WHERE three = ?"'
+    it_behaves_like 'accepts', '
+          query = <<~SQL
+            SELECT * FROM widgets
+            WHERE widgets.owner_id = ?
+            AND widgets.created_at >= ?
+          SQL'
   end
 
   context 'decoration not needed for a hash key' do

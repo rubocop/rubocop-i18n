@@ -6,7 +6,8 @@ module RuboCop
       module GetText
         # Looks for strings that appear to be sentences but are not decorated.
         # Sentences are determined by the STRING_REGEXP. (Upper case character, at least one space,
-        # and sentence punctuation at the end)
+        # and sentence punctuation at the end. A `?` after `=`, `<`, `>`, `(` or `,` is treated as a
+        # SQL bind placeholder, not punctuation.)
         #
         # @example
         #
@@ -22,7 +23,7 @@ module RuboCop
         class DecorateString < Base
           extend AutoCorrector
 
-          STRING_REGEXP = /^\s*[[:upper:]][[:alpha:]]*[[:blank:]]+.*[.!?]$/.freeze
+          STRING_REGEXP = /^\s*[[:upper:]][[:alpha:]]*[[:blank:]]+.*(?:[.!]|[^=<>(,[:blank:]][[:blank:]]*\?)$/.freeze
 
           def on_dstr(node)
             check_for_parent_decorator(node) if dstr_contains_sentence?(node)
